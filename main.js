@@ -1,13 +1,13 @@
-var numero1=document.getElementById('test');
+const numero1=document.getElementById('test');
 console.log(numero1);
-var h1 = document.getElementsByTagName('h1')[0];
-var start = document.getElementById('startButton');
-var stop = document.getElementById('stopButton');
-var reset = document.getElementById('resetButton');
-var sec = 0;
-var min = 0;
-var hours = 0;
-var t;
+const h1 = document.getElementsByTagName('h1')[0];
+const start = document.getElementById('startButton');
+const stop = document.getElementById('stopButton');
+const reset = document.getElementById('resetButton');
+let t,
+    hours = 0,
+    min = 0,
+    sec = 0;
 
 function tick(){
     sec++;
@@ -25,10 +25,10 @@ function add() {
     h1.textContent = (hours > 9 ? hours : "0" + hours) 
         	 + ":" + (min > 9 ? min : "0" + min)
        		 + ":" + (sec > 9 ? sec : "0" + sec);
-    timer();
 }
 function timer() {
-    t = setTimeout(add, 1000);
+    clearInterval(t);    
+    t = setInterval(add, 1000);
 }
 
 timer();
